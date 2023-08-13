@@ -1,0 +1,20 @@
+plugins:
+  - serverless-plugin-typescript-express
+  - serverless-plugin-common-excludes
+
+# Project name on the infrastructure created
+service: node-typescript-serverless
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: ap-northeast-1
+
+functions:
+  api:
+    handler: src/server.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
+        

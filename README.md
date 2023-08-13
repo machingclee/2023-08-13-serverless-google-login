@@ -1,2 +1,6 @@
-# 2023-08-13-serverless-google-login
-Record a simple google login for future reuse
+- Run `yarn`
+- From [this thread](https://github.com/serverless/serverless/issues/10944), open up `node_modules/serverless/bin/serverless.js` in your global node_modules and add this right after use strict;:
+
+  ```
+  require('../../graceful-fs/graceful-fs').gracefulify(require('fs'));
+  ```
